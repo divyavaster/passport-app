@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passport Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>Passport Application Portal</h1>
+    <p>Welcome to your dashboard</p>
+</header>
+
+<nav class="navbar">
+    <a href="home.html">Home</a>
+    <a href="index.html">New Application</a>
+    <a href="status.html">Check Status</a>
+    <a href="#" onclick="logout()">Logout</a>
+</nav>
+
+<main class="container">
+
+    <div class="dashboard">
+
+        <h2>Welcome!</h2>
+
+        <p>
+            Manage your passport application from this dashboard.
+        </p>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>New Application</h3>
+                <p>Apply for a new passport.</p>
+
+                <button onclick="location.href='index.html'">
+                    Apply Now
+                </button>
+            </div>
+
+            <div class="card">
+                <h3>Application Status</h3>
+                <p>Check your application status.</p>
+
+                <button onclick="location.href='status.html'">
+                    Check Status
+                </button>
+            </div>
+
+            <div class="card">
+                <h3>My Account</h3>
+                <p id="userEmail">Loading...</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+<script src="script.js"></script>
+
+<script>
+    const email = localStorage.getItem("userEmail");
+
+    if (email) {
+        document.getElementById("userEmail").innerHTML =
+            "Email: " + email;
+    } else {
+        document.getElementById("userEmail").innerHTML =
+            "Please login first.";
+    }
+</script>
+
+</body>
+</html>
